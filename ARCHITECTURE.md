@@ -74,6 +74,7 @@ Sessions are stored in an in-memory `Map<string, ChatMessage[]>` inside `session
 |---|---|
 | First request with a new `sessionId` | A new entry is created in the map with an empty history array |
 | Subsequent requests | The existing history is loaded, the new user message is appended, and the agent loop runs with the full context |
+| Employee switch (dropdown) | The frontend generates a new `sessionId` and clears the message list, ensuring no cross-employee context leakage |
 | Server restart | All sessions are lost (in-memory only) |
 
 ### What gets stored

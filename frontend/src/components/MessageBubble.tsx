@@ -1,3 +1,4 @@
+import Markdown from 'react-markdown';
 import type { Message } from '../types';
 import ToolCallBadge from './ToolCallBadge';
 
@@ -17,7 +18,9 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
       {!isUser && <div className="avatar avatar-assistant">AI</div>}
 
       <div className={`message-bubble ${isUser ? 'bubble-user' : 'bubble-assistant'}`}>
-        <div className="message-content">{message.content}</div>
+        <div className="message-content">
+          {isUser ? message.content : <Markdown>{message.content}</Markdown>}
+        </div>
 
         {message.toolCalls && message.toolCalls.length > 0 && (
           <div className="tool-calls-container">

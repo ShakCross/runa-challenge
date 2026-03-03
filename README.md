@@ -65,7 +65,7 @@ The UI opens on **http://localhost:5173** and proxies `/api` requests to the bac
 
 ## Assumptions
 
-- **Employee identity:** The demo provides a dropdown to select an employee (EMP001–EMP005). In production this would come from authentication/SSO.
+- **Employee identity:** The demo provides a dropdown to select an employee (EMP001–EMP005). Switching employees resets the conversation to prevent cross-employee context leakage. In production this would come from authentication/SSO.
 - **Date handling:** All dates use `YYYY-MM-DD` format and are validated server-side. Business-day calculation excludes weekends but not public holidays (a holiday calendar would be needed in production).
 - **Session management:** Conversation history lives in-memory and resets on server restart. Production would use Redis or a database.
 - **Auto-approval:** Time-off requests are confirmed instantly. A real system would route through an approval workflow.

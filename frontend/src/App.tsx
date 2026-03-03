@@ -7,7 +7,7 @@ export default function App() {
     isLoading,
     error,
     employeeId,
-    setEmployeeId,
+    changeEmployee,
     sendMessage,
     clearChat,
   } = useChat();
@@ -19,7 +19,7 @@ export default function App() {
         isLoading={isLoading}
         error={error}
         employeeId={employeeId}
-        onEmployeeChange={setEmployeeId}
+        onEmployeeChange={changeEmployee}
         onSend={sendMessage}
         onClear={clearChat}
       />

@@ -10,6 +10,13 @@ export function useChat() {
   const [sessionId, setSessionId] = useState(() => uuidv4());
   const [employeeId, setEmployeeId] = useState('EMP001');
 
+  const changeEmployee = useCallback((newEmployeeId: string) => {
+    setEmployeeId(newEmployeeId);
+    setMessages([]);
+    setSessionId(uuidv4());
+    setError(null);
+  }, []);
+
   const sendMessage = useCallback(
     async (content: string) => {
       const trimmed = content.trim();
@@ -64,7 +71,7 @@ export function useChat() {
     error,
     sessionId,
     employeeId,
-    setEmployeeId,
+    changeEmployee,
     sendMessage,
     clearChat,
   };
